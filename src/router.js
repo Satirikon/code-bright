@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./views/home/Home.vue";
+import Comments from "./views/comments/Comments.vue";
+import ActiveComment from "./views/comments/active-comment/ActiveComment";
+import CommentsList from "./views/comments/comments-list/CommentsList";
 
 Vue.use(Router);
 
@@ -14,13 +17,21 @@ export default new Router({
       component: Home
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/comments",
+      name: "comments",
+      component: Comments,
+      children: [
+        {
+          path: ":id",
+          name: "activeComment",
+          component: ActiveComment
+        },
+        {
+          path: "",
+          name: "CommentsList",
+          component: CommentsList
+        }
+      ]
     }
   ]
 });
