@@ -1,0 +1,30 @@
+@import "../../media";
+
+footer{
+  background-color: #1C1D24;
+  .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    flex-wrap: wrap;
+    border-top: rgb(74, 77, 94) 1px solid;
+    margin: 0 50px;
+    .contacts{
+      color: #ffffff;
+      text-align: left;
+    }
+    .copyright{
+      padding: 10px 0;
+      color: #4a4d5e;
+    }
+    @include respond-to(phonePortrait, phoneLandscape) {
+      margin: 0;
+      flex-direction: column;
+     justify-content: center;
+    }
+    @include respond-to(tabletPortrait) {
+      margin: 0 30px;
+    }
+  }
+}

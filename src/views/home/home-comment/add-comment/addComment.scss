@@ -1,0 +1,46 @@
+@import "../../../../media";
+
+.add-comment{
+  display: flex;
+  flex-direction: column;
+.field{
+  border: 1px #60E3A1 solid;
+  background-color: #1C1D24;
+  margin-bottom: 15px;
+  width: 592px;
+  height: 55px;
+  color: #60E3A1;
+  font-family: "Sofia Pro Regular", sans-serif;
+  font-size: 16px;
+  padding-left: 20px;
+  &.text{
+    height: 150px;
+    line-height:20px;
+    padding-top: 20px;
+  }
+  &::placeholder{
+    color: #60E3A1;
+    margin: 20px;
+    opacity: 0.5;
+  }
+  @include respond-to(phonePortrait, phoneLandscape) {
+    width: 300px;
+  }
+  @include respond-to(tabletPortrait) {
+    width: 400px;
+  }
+}
+  .button{
+    border: 1px #60E3A1 solid;
+    border-radius: 5px;
+    background-color: #60E3A1;
+    color: #1C1D24;
+    width: 150px;
+    height: 55px;
+    font-family: "Sofia Pro Regular", sans-serif;
+    font-size: 16px;
+  }
+  @include respond-to(phonePortrait, phoneLandscape) {
+    margin-bottom: 50px;
+  }
+}

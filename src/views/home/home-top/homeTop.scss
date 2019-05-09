@@ -1,0 +1,27 @@
+@import "../../../media";
+
+.home-top{
+  .title{
+    margin: 35px 180px 0 180px;
+    text-align: left;
+    font-family: "Sofia Pro Semi", sans-serif;
+    font-size: 70px;
+    color: #111518;
+    max-width: 855px;
+    @include respond-to(phonePortrait, phoneLandscape) {
+      font-size: 35px;
+      margin: 0 20px;
+    }
+    @include respond-to(tabletPortrait) {
+      font-size: 35px;
+      margin: 0 20px;
+    }
+  }
+  .image{
+    margin-top: 75px;
+    width: 100%;
+    @include respond-to(phonePortrait, phoneLandscape) {
+      margin-top: 40px;
+    }
+  }
+}

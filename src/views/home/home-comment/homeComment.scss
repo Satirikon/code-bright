@@ -1,0 +1,30 @@
+@import "../../../media";
+
+.home-comment{
+  background-color: #1C1D24;
+  display: flex;
+  justify-content: space-between;
+  padding: 140px 180px;
+  flex-wrap: wrap;
+  .title{
+    font-family: "Sofia Pro Semi", sans-serif;
+    font-size: 55px;
+    color: white;
+    max-width: 240px;
+    text-align: left;
+    @include respond-to(phonePortrait, phoneLandscape) {
+      font-size: 40px;
+    }
+    .pointer{
+      width: 30%;
+      margin-top: 40px;
+      border: #F3CC0D 5px solid;
+      @include respond-to(phonePortrait, phoneLandscape, tabletPortrait, tabletLandscape) {
+        margin: 40px 0;
+      }
+    }
+  }
+  @include respond-to(phonePortrait, phoneLandscape) {
+    padding: 20px 20px;
+  }
+}
