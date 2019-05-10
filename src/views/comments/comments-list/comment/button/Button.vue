@@ -1,10 +1,20 @@
 <template>
-  <button class="button">Read more</button>
+  <button :class="btnClass" v-on:click="onClick()">{{ text }}</button>
 </template>
 
 <script>
 export default {
-  name: "Button"
+  name: "Button",
+  props: {
+    className: String,
+    text: String,
+    onClick: Function || null
+  },
+  computed: {
+    btnClass: function() {
+      return this.className ? `button ${this.className}` : `button`;
+    }
+  }
 };
 </script>
 

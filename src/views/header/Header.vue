@@ -1,9 +1,9 @@
 <template>
   <header>
     <div class="logo-container">
-      <anchor-router-link :to="{ name: 'home', hash: '' }">
+      <router-link to="/">
         <img src="@/assets/images/logo.png" />
-      </anchor-router-link>
+      </router-link>
     </div>
     <ul class="menu">
       <li>

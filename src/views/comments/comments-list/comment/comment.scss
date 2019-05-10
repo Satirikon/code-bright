@@ -17,6 +17,12 @@
     font-size: 14px;
     margin: 25px 0;
   }
+  .action-btn-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
   .button-link{
     text-decoration: none;
   }

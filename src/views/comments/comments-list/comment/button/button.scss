@@ -7,4 +7,10 @@
   height: 55px;
   font-family: "Sofia Pro Regular", sans-serif;
   font-size: 16px;
+  &.edit{
+    background-color: yellowgreen;
+  }
+  &.delete{
+    background-color: red;
+  }
 }

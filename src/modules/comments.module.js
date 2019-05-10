@@ -22,9 +22,7 @@ const mutations = {
 const actions = {
   GET_COMMENTS: async context => {
     try {
-      const { data } = await Vue.axios.get(
-        "https://5cbef81d06a6810014c66193.mockapi.io/api/comments"
-      );
+      const { data } = await Vue.axios.get("/comments");
       context.commit("SET_COMMENTS", data);
     } catch (e) {
       console.error(e);
@@ -33,10 +31,7 @@ const actions = {
   ADD_COMMENT: async (context, payload) => {
     try {
       const data = { ...payload, created_at: Date.now() };
-      await Vue.axios.post(
-        "https://5cbef81d06a6810014c66193.mockapi.io/api/comments",
-        data
-      );
+      await Vue.axios.post("/comments", data);
       context.commit("ADD_COMMENT", data);
     } catch (e) {
       console.error(e);
@@ -45,9 +40,7 @@ const actions = {
   },
   GET_COMMENT: async (context, id) => {
     try {
-      const { data } = await Vue.axios.get(
-        `https://5cbef81d06a6810014c66193.mockapi.io/api/comments/${id}`
-      );
+      const { data } = await Vue.axios.get(`/comments/${id}`);
       context.commit("SET_ACTIVE", data);
     } catch (e) {
       console.error(e);
@@ -55,19 +48,15 @@ const actions = {
   },
   DELETE_COMMENT: async (context, id) => {
     try {
-      await Vue.axios.delete(
-        `https://5cbef81d06a6810014c66193.mockapi.io/api/comments/${id}`
-      );
-      context.commit("DELETE_COMMENT");
+      await Vue.axios.delete(`/comments/${id}`);
+      context.commit("DELETE_COMMENT", id);
     } catch (e) {
       console.error(e);
     }
   },
   UPDATE_COMMENT: async (context, payload) => {
     try {
-      await Vue.axios.put(
-        `https://5cbef81d06a6810014c66193.mockapi.io/api/comments/${payload.id}`
-      );
+      await Vue.axios.put(`/comments/${payload.id}`);
       context.commit("UPDATE_COMMENT", payload);
     } catch (e) {
       console.error(e);
