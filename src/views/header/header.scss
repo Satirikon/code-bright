@@ -13,6 +13,7 @@ header{
   .menu{
     display: flex;
     list-style-type: none;
+
     li {
       font-family: "Sofia Pro", sans-serif;
       font-weight: 500;
@@ -23,8 +24,12 @@ header{
         margin-left: 0;
       }
       a, a:visited{
+        padding: 10px 0;
         text-decoration: none;
         color: #111518;
+        &.router-link-active{
+          border-top: 2px yellow solid;
+        }
       }
     }
     @include respond-to(phonePortrait, phoneLandscape) {

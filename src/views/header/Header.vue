@@ -25,7 +25,6 @@
 
 <script>
 import AnchorRouterLink from "vue-anchor-router-link";
-
 export default {
   name: "Header",
   components: {

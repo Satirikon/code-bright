@@ -9,7 +9,7 @@
     <div v-if="!isEdit">
       <div class="comment-title">{{ title }}</div>
       <div class="comment-body">
-        {{ text.substring(0, text.indexOf("\n")) }}
+        {{ getShortText() }}
       </div>
     </div>
     <div class="action-btn-container">
@@ -21,7 +21,7 @@
       <Button class-name="delete" text="Delete" :on-click="deleteComment" />
     </div>
     <router-link class="button-link" :to="`/comments/${id}`">
-      <Button text="Read more" />
+      <Button text="Read more" :on-click="() => {}" />
     </router-link>
   </div>
 </template>
@@ -58,6 +58,11 @@ export default {
       } catch (e) {
         alert("Comment wasn't updated due to an error");
       }
+    },
+    getShortText() {
+      const index = this.text.indexOf("\n");
+      if (index <= 0) return this.text;
+      return this.text.substring(0, index);
     }
   },
   data() {
