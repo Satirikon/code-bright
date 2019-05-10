@@ -23,29 +23,29 @@
 <script>
 export default {
   name: "AddComment",
+  props: {
+    defaultTitle: String,
+    defaultBody: String,
+    onSubmit: Function
+  },
   data() {
     return {
-      title: "",
-      body: ""
+      title: this.defaultTitle || "",
+      body: this.defaultBody || ""
     };
   },
   methods: {
     async add(e) {
       e.preventDefault();
-      try {
-        await this.$validator.validateAll();
-        if (this.$validator.errors.items.length) return;
-        const { title, body } = this.$data;
-        await this.$store.dispatch("ADD_COMMENT", { title, body });
-        this.$data.title = this.$data.body = "";
-        await this.$validator.reset();
-        alert("Comment successfully added.");
-      } catch (e) {
-        alert("Comment wasn't added due to an error");
-      }
+      await this.$validator.validateAll();
+      if (this.$validator.errors.items.length) return;
+      const { title, body } = this.$data;
+      await this.onSubmit({ title, body });
+      this.$data.title = this.$data.body = "";
+      await this.$validator.reset();
     }
   }
 };
 </script>
 
-<style scoped lang="scss" src="./addComment.scss"></style>
+<style scoped lang="scss" src="./commentForm.scss"></style>

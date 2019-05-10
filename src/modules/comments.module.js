@@ -56,10 +56,11 @@ const actions = {
   },
   UPDATE_COMMENT: async (context, payload) => {
     try {
-      await Vue.axios.put(`/comments/${payload.id}`);
+      await Vue.axios.put(`/comments/${payload.id}`, payload);
       context.commit("UPDATE_COMMENT", payload);
     } catch (e) {
       console.error(e);
+      throw e;
     }
   }
 };

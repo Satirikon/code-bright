@@ -4,17 +4,29 @@
       Write comment
       <hr class="pointer" />
     </div>
-    <div class="form-wrapper"><AddComment /></div>
+    <div class="form-wrapper">
+      <AddComment :on-submit="addNewComment" />
+    </div>
   </div>
 </template>
 
 <script>
-import AddComment from "./add-comment/AddComment.vue";
+import AddComment from "../../../components/comment-form/CommentForm.vue";
 
 export default {
   name: "HomeComment",
   components: {
     AddComment
+  },
+  methods: {
+    async addNewComment(formData) {
+      try {
+        await this.$store.dispatch("ADD_COMMENT", formData);
+        alert("Comment successfully added.");
+      } catch (e) {
+        alert("Comment wasn't added due to an error");
+      }
+    }
   }
 };
 </script>

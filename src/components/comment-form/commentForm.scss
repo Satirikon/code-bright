@@ -1,8 +1,11 @@
-@import "../../../../media";
+@import "../../media";
 
 .add-comment {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 5px;
+
   .error{
     color: red;
     text-align: left;
@@ -11,7 +14,7 @@
   .field {
     border: 1px #60E3A1 solid;
     background-color: #1C1D24;
-    width: 592px;
+    width: 100%;
     height: 55px;
     color: #60E3A1;
     font-family: "Sofia Pro Regular", sans-serif;
@@ -26,12 +29,6 @@
       color: #60E3A1;
       margin: 20px;
       opacity: 0.5;
-    }
-    @include respond-to(phonePortrait, phoneLandscape) {
-      width: 300px;
-    }
-    @include respond-to(tabletPortrait) {
-      width: 400px;
     }
   }
   .button {

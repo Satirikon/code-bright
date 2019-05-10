@@ -24,6 +24,15 @@
       }
     }
   }
+  .form-wrapper{
+    width: 592px;
+    @include respond-to(phonePortrait, phoneLandscape) {
+      width: 300px;
+    }
+    @include respond-to(tabletPortrait) {
+      width: 400px;
+    }
+  }
   @include respond-to(phonePortrait, phoneLandscape) {
     padding: 20px 20px;
   }
