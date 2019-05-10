@@ -1,0 +1,24 @@
+@import "../../../media";
+
+.wrapper {
+  @include respond-to(tabletLandscape, desktop) {
+    margin: 50px 180px 100px 180px;
+  }
+   .title {
+     font-family: "Sofia Pro Semi", sans-serif;
+     font-size: 30px;
+     color: #111518;
+     @include respond-to(tabletLandscape, desktop) {
+       font-size: 70px;
+       padding-bottom: 80px;
+       text-align: left;
+     }
+   }
+   .comments-list {
+     @include respond-to(tabletLandscape, desktop) {
+       columns: 2;
+     }
+   }
+ }
+
+

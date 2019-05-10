@@ -1,5 +1,5 @@
 <template>
-  <form class="add-comment" v-on:submit="add">
+  <form class="add-comment" v-on:submit="add" @submit="checkForm" action="">
     <input class="field" v-model="title" placeholder="Title" />
     <textarea
       class="field text"
@@ -24,6 +24,23 @@ export default {
       e.preventDefault();
       const { title, body } = this.$data;
       this.$store.dispatch("ADD_COMMENT", { title, body });
+    },
+    checkForm(e) {
+      const { title, body } = this.$data;
+      if (title && body) {
+        return true;
+      }
+
+      // this.errors = [];
+
+      if (!title) {
+        this.errors.push("Set the title");
+      }
+      if (!body) {
+        this.errors.push("Set comment text");
+      }
+      // console.log(this.errors);
+      e.preventDefault();
     }
   }
 };
