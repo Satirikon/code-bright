@@ -40,6 +40,7 @@ const actions = {
       context.commit("ADD_COMMENT", data);
     } catch (e) {
       console.error(e);
+      throw e;
     }
   },
   GET_COMMENT: async (context, id) => {
